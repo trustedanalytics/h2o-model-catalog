@@ -1,0 +1,15 @@
+server.port: 56951
+
+security:
+  ignored: /**
+
+services:
+  service-exposer: ${vcap.services.service-exposer.credentials.host:http://localhost:${server.port}}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.trustedanalytics: DEBUG
+
+maximum_cache_size: 1000
+cache_expiration_time_s: 300

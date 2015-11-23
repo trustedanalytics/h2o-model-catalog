@@ -1,0 +1,21 @@
+server.port: 9994
+
+spring.oauth2.resource:
+  id: cloud_controller
+  jwt:
+    keyUri: ${vcap.services.sso.credentials.tokenKey}
+
+services:
+  service-exposer: ${vcap.services.service-exposer.credentials.host:http://localhost:9991}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.trustedanalytics: DEBUG
+
+cf:
+  resource: ${vcap.services.sso.credentials.apiEndpoint}
+  uaa: ${vcap.services.sso.credentials.uaaUri}
+
+maximum_cache_size: 1000
+cache_expiration_time_s: 60

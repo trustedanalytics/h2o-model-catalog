@@ -1,0 +1,13 @@
+---
+applications:
+- name: model-catalog
+  memory: 512M
+  instances: 1
+  host: model-catalog
+  path: target/model-catalog-${version}.jar
+  services: 
+  - sso
+  - service-exposer
+  env:
+    SPRING_PROFILES_ACTIVE: "cloud"
+    VERSION: ${version}
