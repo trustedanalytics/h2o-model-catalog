@@ -25,6 +25,7 @@ import com.google.common.cache.LoadingCache;
 import feign.Feign;
 import feign.Feign.Builder;
 import feign.Logger;
+import feign.Request;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
@@ -80,6 +81,7 @@ public class ApplicationConfiguration {
             .encoder(new JacksonEncoder(objectMapper()))
             .decoder(new JacksonDecoder(objectMapper()))
             .logger(new Slf4jLogger(ApplicationConfiguration.class))
+            .options(new Request.Options(30 * 1000, 10 * 1000))
             .logLevel(Logger.Level.BASIC);
     }
 

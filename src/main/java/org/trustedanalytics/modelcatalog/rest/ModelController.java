@@ -52,8 +52,8 @@ public class ModelController {
         this.h2oInstanceCache = h2oInstanceCache;
     }
 
-    @RequestMapping(value = "/rest/v1/models/organizations/{org}", method = GET, produces = APPLICATION_JSON_VALUE)
-    public Collection<H2oInstance> getModels(@PathVariable("org") UUID org) {
+    @RequestMapping(value = "/rest/v1/analytics/h2o/models/organizations/{org}", method = GET, produces = APPLICATION_JSON_VALUE)
+    public Collection<H2oInstance> getH2oModels(@PathVariable("org") UUID org) {
 
         return serviceExposerOperations.getAllCredentials("bearer " + tokenExtractor.apply(SecurityContextHolder.getContext().getAuthentication()), org, SERVICE).stream()
             .map(h2oInstanceCache::getUnchecked)
