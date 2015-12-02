@@ -23,26 +23,26 @@ import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
-public class DataModelProvider {
+public class ModelProvider {
 
-    private H2oInstanceStatus h2oInstanceStatus;
+    private H2oInstanceStatus status;
     private String name;
     private String password;
     private String login;
     private String hostname;
     private String guid;
-    private Collection<DataModel> dataModels;
+    private Collection<Model> models;
 
-    public DataModelProvider(H2oInstance h2oInstance) {
-        h2oInstanceStatus = h2oInstance.getH2oInstanceStatus();
+    public ModelProvider(H2oInstance h2oInstance) {
+        status = h2oInstance.getH2oInstanceStatus();
         name = h2oInstance.getH2oInstanceCredentials().getName();
         password = h2oInstance.getH2oInstanceCredentials().getPassword();
         login = h2oInstance.getH2oInstanceCredentials().getLogin();
         hostname = h2oInstance.getH2oInstanceCredentials().getHostname();
         guid = h2oInstance.getH2oInstanceCredentials().getGuid();
-        dataModels = h2oInstance.getH2oModels()
+        models = h2oInstance.getH2oModels()
             .stream()
-            .map(DataModel::new)
+            .map(Model::new)
             .collect(Collectors.toList());
     }
 }

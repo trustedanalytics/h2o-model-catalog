@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.trustedanalytics.modelcatalog.client.ServiceExposerOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.trustedanalytics.modelcatalog.data.DataModelProvider;
+import org.trustedanalytics.modelcatalog.data.ModelProvider;
 import org.trustedanalytics.modelcatalog.data.H2oInstance;
 import org.trustedanalytics.modelcatalog.data.H2oInstanceCredentials;
 
@@ -54,11 +54,11 @@ public class ModelController {
     }
 
     @RequestMapping(value = "/rest/v1/analytics/h2o/models/organizations/{org}", method = GET, produces = APPLICATION_JSON_VALUE)
-    public Collection<DataModelProvider> getH2oModels(@PathVariable("org") UUID org) {
+    public Collection<ModelProvider> getH2oModels(@PathVariable("org") UUID org) {
 
         return serviceExposerOperations.getAllCredentials("bearer " + tokenExtractor.apply(SecurityContextHolder.getContext().getAuthentication()), org, SERVICE).stream()
             .map(h2oInstanceCache::getUnchecked)
-            .map(h2oInstance -> new DataModelProvider(h2oInstance))
+            .map(h2oInstance -> new ModelProvider(h2oInstance))
             .collect(Collectors.toList());
     }
 }

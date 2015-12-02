@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class DataModel {
+public class Model {
 
     private String name;
     private String type;
@@ -30,7 +30,7 @@ public class DataModel {
     private String algoFullName;
     private String timestamp;
 
-    public DataModel(H2oModel h2oModel) {
+    public Model(H2oModel h2oModel) {
         name = h2oModel.getModelId().getName();
         type = h2oModel.getModelId().getType();
         schemaName = h2oModel.getMeta().getSchemaName();
