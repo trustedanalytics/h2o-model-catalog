@@ -35,7 +35,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.trustedanalytics.modelcatalog.data.H2oInstance;
 import org.trustedanalytics.modelcatalog.data.H2oInstanceCredentials;
+import org.trustedanalytics.modelcatalog.data.H2oMeta;
 import org.trustedanalytics.modelcatalog.data.H2oModel;
+import org.trustedanalytics.modelcatalog.data.H2oModelId;
 import org.trustedanalytics.modelcatalog.data.H2oModels;
 
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class ModelCatalogIT {
 
         assertEquals(0, h2oInstanceCache.size());
 
-        h2oInstancesOperations.getH2oInstances(UUID.fromString("ee1c60ab-1d4f-4bbb-aeba-60ea8c67bbbb"));
+        h2oInstancesOperations.getAnalyticsToolInstances(UUID.fromString("ee1c60ab-1d4f-4bbb-aeba-60ea8c67bbbb"));
 
         H2oInstanceCredentials h2oInstanceCredentials = new H2oInstanceCredentials();
         h2oInstanceCredentials.setGuid("test-guid");
@@ -91,9 +93,13 @@ public class ModelCatalogIT {
 
             H2oModel h2oModel = new H2oModel();
             h2oModel.setAlgo("algo");
+            h2oModel.setMeta(new H2oMeta());
+            h2oModel.setModelId(new H2oModelId());
 
             H2oModel h2oModel2 = new H2oModel();
-            h2oModel.setAlgo("algo2");
+            h2oModel2.setAlgo("algo2");
+            h2oModel2.setMeta(new H2oMeta());
+            h2oModel2.setModelId(new H2oModelId());
 
             h2oModels.getModels().add(h2oModel);
             h2oModels.getModels().add(h2oModel2);

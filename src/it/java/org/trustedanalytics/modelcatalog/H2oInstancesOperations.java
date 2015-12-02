@@ -18,13 +18,13 @@ package org.trustedanalytics.modelcatalog;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-import org.trustedanalytics.modelcatalog.data.H2oInstance;
+import org.trustedanalytics.modelcatalog.data.DataModelProvider;
 
 import java.util.Collection;
 import java.util.UUID;
 
 public interface H2oInstancesOperations {
-    @RequestLine("GET /rest/v1/models/organizations/{org}")
+    @RequestLine("GET /rest/v1/analytics/h2o/models/organizations/{org}")
     @Headers("Content-Type: application/json")
-    Collection<H2oInstance> getH2oInstances(@Param("org") UUID org);
+    Collection<DataModelProvider> getAnalyticsToolInstances(@Param("org") UUID org);
 }
