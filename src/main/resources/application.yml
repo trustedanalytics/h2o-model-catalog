@@ -19,3 +19,6 @@ cf:
 
 maximum_cache_size: 1000
 cache_expiration_time_s: 60
+
+endpoints.enabled: false
+endpoints.health.enabled: true
