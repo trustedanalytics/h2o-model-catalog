@@ -36,6 +36,8 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 public class ModelController {
 
@@ -53,6 +55,7 @@ public class ModelController {
         this.h2oInstanceCache = h2oInstanceCache;
     }
 
+    @ApiOperation("Get H2O models")
     @RequestMapping(value = "/rest/v1/analytics/h2o/models/organizations/{org}", method = GET, produces = APPLICATION_JSON_VALUE)
     public Collection<ModelProvider> getH2oModels(@PathVariable("org") UUID org) {
 
