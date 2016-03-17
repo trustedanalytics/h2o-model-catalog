@@ -55,7 +55,10 @@ public class ModelController {
         this.h2oInstanceCache = h2oInstanceCache;
     }
 
-    @ApiOperation("Get H2O models")
+    @ApiOperation(
+            value = "Get H2O models.",
+            notes = "Privilege level: Consumer of this endpoint must be a member of specified organization"
+    )
     @RequestMapping(value = "/rest/v1/analytics/h2o/models/organizations/{org}", method = GET, produces = APPLICATION_JSON_VALUE)
     public Collection<ModelProvider> getH2oModels(@PathVariable("org") UUID org) {
 
