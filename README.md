@@ -1,3 +1,5 @@
+[![Dependency Status](https://www.versioneye.com/user/projects/57236d4cba37ce00350af79b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57236d4cba37ce00350af79b)
+
 # model-catalog
 Service for exposing data models
 
