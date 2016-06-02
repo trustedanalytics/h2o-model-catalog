@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>model-catalog</artifactId>
-    <version>0.0.10</version>
+    <version>0.0.11</version>
 
     <parent>
         <groupId>org.trustedanalytics</groupId>
         <artifactId>trustedanalytics-cloud-parent</artifactId>
-        <version>0.4.1</version>
+        <version>0.6.1</version>
     </parent>
 
     <dependencies>
@@ -186,10 +186,10 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <header>license/license_header.txt</header>  
-                    <includes>
+		    <includes>
                         <include>src/**/*.java</include>
                         <include>license/*.sh</include>
+			<include>pack.sh</include>
                     </includes>                                       
 		    <mapping>
                         <java>JAVADOC_STYLE</java>
