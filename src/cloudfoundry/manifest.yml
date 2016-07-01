@@ -1,10 +1,10 @@
 ---
 applications:
-- name: model-catalog
+- name: h2o-model-catalog
   memory: 512M
   instances: 1
-  host: model-catalog
-  path: target/model-catalog-${version}.jar
+  host: h2o-model-catalog
+  path: target/h2o-model-catalog-${version}.jar
   services: 
   - sso
   - service-exposer
